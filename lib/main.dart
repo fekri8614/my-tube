@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_tube/screens/home/home_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'MyTube',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -18,6 +19,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: HomeScreen(),
+      getPages: [
+        GetPage(name: '/', page: () => HomeScreen()),
+        GetPage(name: '/search', page: () => Container()),
+        GetPage(name: '/about', page: () => Container()),
+      ],
     );
   }
 }
